@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<PAGE MANDATORY="1" VERSION="1.0" xmlns:cdn="www.cedacri.it">
+  <DESCRIPTION>
+    <NAME>MNMNFW2G</NAME>
+    <PROTECTED>1</PROTECTED>
+    <VERIFYROLES>0</VERIFYROLES>
+    <ROLE>Administrator</ROLE>
+    <TITLE>UTILITIES</TITLE>
+    <SUBTITLE></SUBTITLE>
+    <MENU_PATH></MENU_PATH>
+    <URLSTACK>reset</URLSTACK>
+  </DESCRIPTION>
+  <ENVIRONMENT>
+    <USER/>
+    <TERMINALE/>
+    <ISTITUTO/>
+    <FILIALE/>
+    <CANALE/>
+  </ENVIRONMENT>
+  <PARAMS>
+	  <PARAM name="MNW8A-FUNZIONE" requestid="MNW8A-FUNZIONE" mandatory="true" default="SR"/>
+  </PARAMS>
+  <PROCESSOR type="businessrule">
+    <BUSINESSRULE MANDATORY="1">
+      <PROGRID>prjinquiry2.inquiry2</PROGRID>
+      <OUTCOME>
+        <NAME>S_OK</NAME>
+        <FILE id="default">MN/MNW2G/XSL/MNW2G</FILE>
+      </OUTCOME>
+      <OUTCOME>
+        <NAME>E_LOW</NAME>
+        <FILE id="default">MN/MNW2G/XSL/MNW2G</FILE>
+      </OUTCOME>
+      <OUTCOME>
+        <NAME>E_HIGH</NAME>
+        <FILE id="default">MN/MNW2G/XSL/MNW2G</FILE>
+      </OUTCOME>
+      <OUTCOME>
+        <NAME>E_SYSTEM</NAME>
+        <FILE id="default">MN/MNW2G/XSL/MNW2G</FILE>
+      </OUTCOME>
+    </BUSINESSRULE>
+  </PROCESSOR>
+  <DATASETS>
+    <DATASET name="MNMNFW8A">
+      <LOCATION>remote</LOCATION>
+      <BRBACKEND>MN/MN98A/BRDs/MNW8A</BRBACKEND>
+      <SCOPE>session</SCOPE>
+      <FORCEREFRESH>false</FORCEREFRESH>
+      <NOCACHE></NOCACHE>
+      <INPUTPARAMS>
+		  <PARAM name="MNW8A-FUNZIONE" />
+      </INPUTPARAMS>
+    </DATASET>
+  </DATASETS>
+  <OUTPUT>
+    <RESULT>
+      <CODE></CODE>
+      <OUTCOME></OUTCOME>
+      <DESCRIPTION></DESCRIPTION>
+    </RESULT>
+    <DATASETS>
+    </DATASETS>
+  </OUTPUT>
+</PAGE>
